@@ -1,1 +1,2 @@
-This is a URL shortener written using Go deployed with Gin framework and Redis as storage system. 
+# Go URL Shortener 
+Using Go, Gin, Redis
