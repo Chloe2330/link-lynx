@@ -32,11 +32,11 @@ func InitializeStore() *StorageService {
 	// Initializes a new Redis client with configuration object
 	redisClient := redis.NewClient(&redis.Options{
 		// default address of Redis server
-		Addr:     "localhost:6379",
+		Addr: "localhost:6379",
 		// empty password
 		Password: "",
 		// default Redis database (DB 0)
-		DB:       0,
+		DB: 0,
 	})
 
 	// sends 'PING' command to Redis server, checks the response (pong) and error
