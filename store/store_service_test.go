@@ -5,7 +5,6 @@ import (
 	"testing"
 )
 
-
 var testStoreService = &StorageService{}
 
 // special function automatically executed before main()
