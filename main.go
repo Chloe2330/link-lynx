@@ -15,7 +15,7 @@ func main() {
 
 		// sends an HTTP response back to client using JSON method of gin.Context object
 		c.JSON(200, gin.H{
-			"message": "Hey Go URL Shortener!",
+			"message": "Welcome to ShortURL!",
 		}) // two arguments: HTTP status code, JSON data
 
 		// gin.H{} creates a map with string key ("message") and a corresponding value 
