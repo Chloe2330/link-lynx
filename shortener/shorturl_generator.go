@@ -65,25 +65,25 @@ func GenerateShortLink(initialLink string, userId string) string {
 	// converts byte slice to *big.Int type and obtain unsigned integer value (Uint64()) 
 	generatedNumber := new(big.Int).SetBytes(urlHashBytes).Uint64()
 
-	//fmt.Printf("uint64 number: %d\n", generatedNumber)
-
-	// Note: byte slice returned from SHA-256 algorithm is 32 bytes, so direct conversion
-	// to uint64 type (only 8 bytes) would result in data loss/rounding imprecisions, so 
-	// *big.Int provides arbitrary precision integers and allows for safe conversion from 
-	// a byte slice to a fixed-size integer type 
-
 	// converts number to string and then byte slice, Base58 encodes byte slice and 
 	// returns back as string
 	finalString := base58Encoded([]byte(fmt.Sprintf("%d", generatedNumber)))
-
-	// does NOT work, why? 
-	//finalStringFoo:= base58Encoded(urlHashBytes)
-	//fmt.Printf("Correct string: %s, Wrong string: %s\n", finalString, finalStringFoo);
 
 	// truncate and return first eight characters of string
 	return finalString[:8]
 }
 
-// Question: Why can't I directly pass urlHashBytes into the base58 function? 
-// Why must I first convert byte slice to a number, then to a string and then back to []byte?
-// current conversion: []byte -> *big.Int -> uint64 -> string -> []byte -> string
+// Why can't I directly pass urlHashBytes into the base58 function? 
+// current conversions: []byte -> *big.Int -> uint64 -> string -> []byte -> func returns string
+
+// urlHashBytes can not be passed directly into the Base58 encoding function because it 
+// is not designed to handle hash values. 
+
+// Byte slice returned from SHA-256 algorithm is 32 bytes, so direct conversion
+// to uint64 type (only 8 bytes) would result in data loss/rounding imprecisions, so 
+// *big.Int provides arbitrary precision integers and allows for safe conversion from 
+// a byte slice to a fixed-size integer type. 
+
+// uint64 to byte slice conversions are possible, but it's easier and more succint to 
+// first convert the fixed-size integer to a string, and then convert the string to a byte
+// slice with the []byte() inbuilt function
