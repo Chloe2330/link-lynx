@@ -84,13 +84,21 @@ func SaveUrlMapping(shortUrl string, originalUrl string, userId string) {
 func RetrieveInitialUrl(shortUrl string) string {
 
 	// retrieves value associated with the shortUrl key from the Redis server
+	//result := storeService.redisClient.Get(shortUrl)
+
 	result, err := storeService.redisClient.Get(shortUrl).Result()
 
 	// could not retrieve value 
 	if err != nil {
 		panic(fmt.Sprintf("Failed RetrieveInitialUrl url | Error: %v - shortUrl: %s\n", err, shortUrl))
 	}
-
-	// returns value if retrieval is successful 
+	// returns value if retrieval is successful
 	return result
+
+	/*
+	if err != nil {
+		return result
+	}
+	return "Could not retrieve value"
+	*/
 }
