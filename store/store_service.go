@@ -92,6 +92,7 @@ func RetrieveInitialUrl(shortUrl string) string {
 	if err != nil {
 		panic(fmt.Sprintf("Failed RetrieveInitialUrl url | Error: %v - shortUrl: %s\n", err, shortUrl))
 	}
+	
 	// returns value if retrieval is successful
 	return result
 
