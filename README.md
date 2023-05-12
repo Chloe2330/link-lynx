@@ -1,8 +1,9 @@
 # Go URL Shortener 
-Using Go, Gin, Redis, REST API
 
-In Progress:  
+Redis (NoSQL Database)
 
-Deploy to AWS EC2 instance  
+Go, Gin, REST APIs (Backend)
 
-Implement PostgreSQL with LRU configuration to eliminate CacheDuration expiration time in Redis
+HTML/CSS/JS (Frontend)
+
+In Progress :)
