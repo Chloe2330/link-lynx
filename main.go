@@ -22,6 +22,7 @@ func main() {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"cssFile": "/static/styles.css",
 			"logoPath": "/static/lynx-logo.png",
+			"jsFile":    "/static/placeholder.js",
 		})
 	})
 
