@@ -61,7 +61,7 @@ func InitializeStore() *StorageService {
 func SaveUrlMapping(shortUrl string, originalUrl string, userId string) {
 
 	// sets key-value pair (shortUrl-originalUrl) and key expiration time
-	err := storeService.redisClient.Set(shortUrl, originalUrl, CacheDuration).Err()
+	err := storeService.redisClient.Set(shortUrl, userId+": "+originalUrl, CacheDuration).Err()
 
 	// Note: redisClient.Set() takes three arguments, string key, interface{}
 	// value (strings, numbers, JSON data, etc.), and time.Duration
@@ -95,7 +95,6 @@ func RetrieveInitialUrl(shortUrl string) string {
 	
 	// returns value if retrieval is successful
 	return result
-
 	/*
 	if err != nil {
 		return result

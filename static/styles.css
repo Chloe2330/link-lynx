@@ -21,7 +21,7 @@ h1 {
                  0 0 120px #00ffff,
                  0 0 150px #d4ffff;
   }
-  
+
   @keyframes flash {
     0%, 100% {
       opacity: 1;
@@ -52,7 +52,6 @@ h1 {
     background-color: #f0f0f0;
     color: navy; 
     text-shadow: 0 0 5px #00bfff;
-    animation: flash 1s infinite;
     cursor: pointer;
     font-weight: bold;
   }
