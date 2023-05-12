@@ -1,4 +1,4 @@
-# Go URL Shortener 
+# Link Lynx (URL Shortener in Go) 
 
 Redis (NoSQL Database)
 
