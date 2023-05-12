@@ -5,6 +5,7 @@ import (
 	"github.com/Chloe2330/go-url-shortener/handler"
 	"github.com/Chloe2330/go-url-shortener/store"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func main() {
@@ -12,12 +13,23 @@ func main() {
 	// creates a Gin router with default middleware
 	router := gin.Default()
 
+	router.LoadHTMLGlob("templates/index.html")
+
 	// GET request is made to the root ("/") path
 	router.Static("/static", "./static")
 
 	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"cssFile": "/static/styles.css",
+			"logoPath": "/static/lynx-logo.png",
+		})
+	})
+
+	/*
+	router.GET("/", func(c *gin.Context) {
 		c.File("./static/index.html")
 	})
+	*/
 
 	// POST request is made to the "/create-short-url" path, handles short URL creation
 	router.POST("/create-short-url", func(c *gin.Context) {

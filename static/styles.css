@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+
+body {
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    color: navy;
+    text-shadow: 0 0 5px #0078ff,
+                 0 0 10px #0098ff,
+                 0 0 20px #00b7ff,
+                 0 0 40px #00d5ff,
+                 0 0 80px #00f3ff,
+                 0 0 120px #00ffff,
+                 0 0 150px #d4ffff;
+  }
+  
+  @keyframes flash {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+        opacity: 0.5
+    }
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+  }
+
+  input[type="text"], input[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="text"] {
+    background-color: #f0f0f0;
+    color: navy;
+  }
+  
+  input[type="submit"] {
+    background-color: #f0f0f0;
+    color: navy; 
+    text-shadow: 0 0 5px #00bfff;
+    animation: flash 1s infinite;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #39ff14;
+  }
+  
+  input[type="text"]::placeholder {
+    color: navy;
+    text-shadow: 1px 1px 2px rgba(57, 255, 20, 0.5),
+               2px 2px 4px rgba(57, 255, 20, 0.3),
+               3px 3px 6px rgba(57, 255, 20, 0.2),
+               1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+  }
+  
