@@ -12,25 +12,23 @@ func main() {
 	// creates a Gin router with default middleware
 	router := gin.Default()
 
-	// when a HTTP GET request is made to the root ("/") URL path, function is executed
+	// GET request is made to the root ("/") path
+	router.Static("/static", "./static")
+
 	router.GET("/", func(c *gin.Context) {
-
-		// sends an HTTP response back to client using JSON method of gin.Context object
-		c.JSON(200, gin.H{
-			"message": "Welcome to ShortURL!",
-		}) // two arguments: HTTP status code, JSON data
-
-		// gin.H{} creates a map with string key ("message") and a corresponding value 
+		c.File("./static/index.html")
 	})
 
+	// POST request is made to the "/create-short-url" path, handles short URL creation
 	router.POST("/create-short-url", func(c *gin.Context) {
 		handler.CreateShortUrl(c)
 	})
 
+	// GET request is made to the "/:shortUrl" path, handles redirection to initial URL
 	router.GET("/:shortUrl", func(c *gin.Context) {
 		handler.HandleShortUrlRedirect(c)
 	})
-
+	
 	// store initialization
 	store.InitializeStore()
 
