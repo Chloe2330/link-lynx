@@ -1,10 +1,11 @@
 package handler
 
 import (
-	"github.com/Chloe2330/go-url-shortener/shortener"
-	"github.com/Chloe2330/go-url-shortener/store"
+	"github.com/Chloe2330/link-lynx/shortener"
+	"github.com/Chloe2330/link-lynx/store"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strings"
 )
 
 type UrlCreationRequest struct {
@@ -32,5 +33,6 @@ func CreateShortUrl(c *gin.Context) {
 func HandleShortUrlRedirect(c *gin.Context) {
 	shortUrl := c.Param("shortUrl")
 	initialUrl := store.RetrieveInitialUrl(shortUrl)
+	initialUrl = initialUrl[strings.Index(initialUrl, ":")+1:]
 	c.Redirect(302, initialUrl)
 }

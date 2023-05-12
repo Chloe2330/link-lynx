@@ -1,4 +1,4 @@
-module github.com/Chloe2330/go-url-shortener
+module github.com/Chloe2330/link-lynx
 
 go 1.20
 

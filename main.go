@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/Chloe2330/go-url-shortener/handler"
-	"github.com/Chloe2330/go-url-shortener/store"
+	"github.com/Chloe2330/link-lynx/handler"
+	"github.com/Chloe2330/link-lynx/store"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
