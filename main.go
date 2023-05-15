@@ -22,15 +22,10 @@ func main() {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"cssFile": "/static/styles.css",
 			"logoPath": "/static/lynx-logo.png",
-			"jsFile":    "/static/placeholder.js",
+			"jsFilePlace": "/static/placeholder.js",
+			"jsFileReq": "/static/requests.js",
 		})
 	})
-
-	/*
-	router.GET("/", func(c *gin.Context) {
-		c.File("./static/index.html")
-	})
-	*/
 
 	// POST request is made to the "/create-short-url" path, handles short URL creation
 	router.POST("/create-short-url", func(c *gin.Context) {

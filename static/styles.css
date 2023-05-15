@@ -58,6 +58,7 @@ h1 {
   
   input[type="submit"]:hover {
     background-color: #39ff14;
+    outline: 3px solid navy;
   }
   
   input[type="text"]::placeholder {
