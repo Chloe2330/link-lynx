@@ -11,6 +11,6 @@ HTML/CSS/JS (Frontend)
   <img src="./images/example.png" alt="After URL Generation" width="500" style="display:inline-block;">
 </div>
 
-Next steps: 1) make it look better 2) dockerize and deploy 3) pull from Redis cache so only websites corresponding to same userID show up together
+Next steps: 1) make it look better 2) dockerize and deploy service in the cloud 3) pull from Redis cache so only websites corresponding to same userID show up together 4) add SQL DB as backup to Redis
 
 Still in progress :)
