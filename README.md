@@ -12,3 +12,5 @@ HTML/CSS/JS (Frontend)
 </div>
 
 Next steps: 1) make it look better 2) dockerize and deploy 3) pull from Redis cache so only websites corresponding to same userID show up together
+
+Still in progress :)
