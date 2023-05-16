@@ -13,8 +13,9 @@
   <form action="/" method="get">
     <input type="text" name="url" placeholder="Enter a URL" onfocus="removePlaceholder(this)" onblur="restorePlaceholder(this)"><br>
     <input type="text" name="userId" placeholder="Enter your user ID" onfocus="removePlaceholder(this)" onblur="restorePlaceholder(this)"><br><br>
-    <input type="submit" value="Shorten" >
+    <input type="submit" value="Shorten" ><br><br>
   </form>
+  <div id="short-url"></div>
 </div>
 <script src="{{.jsFilePlace}}"></script>
 <script src="{{.jsFileReq}}"></script>

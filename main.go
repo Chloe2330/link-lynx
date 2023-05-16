@@ -18,6 +18,7 @@ func main() {
 	// GET request is made to the root ("/") path
 	router.Static("/static", "./static")
 
+	// GET request is made to the root path, render HTML template to set up homepage
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"cssFile": "/static/styles.css",
