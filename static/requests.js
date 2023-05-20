@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('form');
+
   form.addEventListener('submit', handleFormSubmit);
 
   function handleFormSubmit(event) {

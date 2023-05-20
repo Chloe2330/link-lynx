@@ -1,7 +1,6 @@
 package store
 
 import (
-	//"context"
 	"fmt"
 	"github.com/go-redis/redis"
 	"time"
@@ -15,7 +14,6 @@ type StorageService struct {
 // Creates a new instance of the struct and assigns its address to storeService 
 var (
 	storeService = &StorageService{}
-    //ctx = context.Background()
 )
 
 // Note: the cache duration shouldn't have an expiration time, an LRU 
@@ -39,7 +37,7 @@ func InitializeStore() *StorageService {
 		DB: 0,
 	})
 
-	// sends 'PING' command to Redis server, checks the response (pong) and error
+	// sends 'PING' command to Redis server, checks for response (pong) and error
 	pong, err := redisClient.Ping().Result()
 
 	// Redis server did not start
@@ -57,10 +55,10 @@ func InitializeStore() *StorageService {
 	return storeService
 }
 
-// saves URL mapping in the cache 
+// Saves URL mapping in the cache 
 func SaveUrlMapping(shortUrl string, originalUrl string, userId string) {
 
-	// sets key-value pair (shortUrl-originalUrl) and key expiration time
+	// sets key-value pair (shortUrl - userId: originalUrl) and key expiration time
 	err := storeService.redisClient.Set(shortUrl, userId+": "+originalUrl, CacheDuration).Err()
 
 	// Note: redisClient.Set() takes three arguments, string key, interface{}
@@ -84,8 +82,6 @@ func SaveUrlMapping(shortUrl string, originalUrl string, userId string) {
 func RetrieveInitialUrl(shortUrl string) string {
 
 	// retrieves value associated with the shortUrl key from the Redis server
-	//result := storeService.redisClient.Get(shortUrl)
-
 	result, err := storeService.redisClient.Get(shortUrl).Result()
 
 	// could not retrieve value 
@@ -95,10 +91,4 @@ func RetrieveInitialUrl(shortUrl string) string {
 	
 	// returns value if retrieval is successful
 	return result
-	/*
-	if err != nil {
-		return result
-	}
-	return "Could not retrieve value"
-	*/
 }

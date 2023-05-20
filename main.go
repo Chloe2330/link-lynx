@@ -15,7 +15,6 @@ func main() {
 
 	router.LoadHTMLGlob("templates/index.html")
 
-	// GET request is made to the root ("/") path
 	router.Static("/static", "./static")
 
 	// GET request is made to the root path, render HTML template to set up homepage
@@ -25,7 +24,7 @@ func main() {
 			"logoPath": "/static/lynx-logo.png",
 			"jsFilePlace": "/static/placeholder.js",
 			"jsFileReq": "/static/requests.js",
-		})
+		}) // add all HTML reference files/assets to map
 	})
 
 	// POST request is made to the "/create-short-url" path, handles short URL creation
@@ -44,13 +43,13 @@ func main() {
 	// starts HTTP server and listens on port 8080
 	err := router.Run(":8080")
 
-	// stops execution of goroutine and return error message
+	// HTTP server failed to start
 	if err != nil {
 		panic(fmt.Sprintf("Failed to start the web server - Error: %v", err))
 	}
 }
 
-// curl command (WSL Ubuntu)
+// curl command (Ubuntu)
 /*
 curl -X POST -H "Content-Type: application/json" -d '{
     "long_url": "https://www.digitalocean.com/community/tutorials/how-to-build-a-ruby-on-rails-application#step-5-adding-validations",

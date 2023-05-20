@@ -8,7 +8,7 @@ import (
 	"math/big"
 )
 
-// returns the hash value of a string input as a byte slice using SHA-256 hash function
+// Returns the hash value of a string input as a byte slice using SHA-256 hash function
 func sha256Of(input string) []byte {
 	algorithm := sha256.New()
 	
@@ -20,7 +20,7 @@ func sha256Of(input string) []byte {
 	return algorithm.Sum(nil)
 }
 
-// returns Base58 encoded value as a string
+// Returns Base58 encoded value as a string
 func base58Encoded(bytes []byte) string {
 
 	// specify method of encoding (Bitcoin variant of Base58)
@@ -57,6 +57,7 @@ func base58Encoded(bytes []byte) string {
 // original string format with the initial URL and user ID, but the string returned from
 // base58Encoded() can be decoded back to its byte slice format. 
 
+// Generates the short URL by calling previous two functions and through truncation
 func GenerateShortLink(initialLink string, userId string) string {
 
 	// returns hash value (byte slice) from concatenation of initial URL, user ID
@@ -65,7 +66,7 @@ func GenerateShortLink(initialLink string, userId string) string {
 	// converts byte slice to *big.Int type and obtain unsigned integer value (Uint64()) 
 	generatedNumber := new(big.Int).SetBytes(urlHashBytes).Uint64()
 
-	// converts number to string and then byte slice, Base58 encodes byte slice and 
+	// converts number to string and back to byte slice, Base58 encodes byte slice and 
 	// returns back as string
 	finalString := base58Encoded([]byte(fmt.Sprintf("%d", generatedNumber)))
 
@@ -86,4 +87,4 @@ func GenerateShortLink(initialLink string, userId string) string {
 
 // uint64 to byte slice conversions are possible, but it's easier and more succint to 
 // first convert the fixed-size integer to a string, and then convert the string to a byte
-// slice with the []byte() inbuilt function
+// slice with the inbuilt []byte() function
