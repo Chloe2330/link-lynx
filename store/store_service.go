@@ -29,13 +29,19 @@ func InitializeStore() *StorageService {
 
 	// Initializes a new Redis client with configuration object
 	redisClient := redis.NewClient(&redis.Options{
-		// default address of Redis server
-		Addr: "localhost:6379",
+		// default address of Redis server*
+		Addr: "redis:6379",
 		// empty password
 		Password: "",
 		// default Redis database (DB 0)
 		DB: 0,
-	})
+	}) 
+	// *SUPER IMPORTANT COMMENT: port 6379 of the 'redis' container is binded to
+	// to the computer, so "localhost:6379" allows only the computer to connect
+	// to the server... each docker compose container can access other containers
+	// by using the service name as the hostname, so the 'main' container can 
+	// access the redis service with the hostname 'redis' (or 'db' or whatever), 
+	// so "redis:6379" should be used for connection in this situation
 
 	// sends 'PING' command to Redis server, checks for response (pong) and error
 	pong, err := redisClient.Ping().Result()
