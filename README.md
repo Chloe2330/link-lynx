@@ -1,10 +1,10 @@
 # Link Lynx (URL Shortener in Go) 
 
-Redis (NoSQL Database)
+Gin app that shortens urls. 
 
-Go, Gin, REST API (Backend)
+Adding more features...⌛
 
-HTML/CSS/JS (Frontend)
+Redis, Go (Gin), HTML/CSS/JS
 
 <!--
 <div>
@@ -13,6 +13,6 @@ HTML/CSS/JS (Frontend)
 </div>
 -->
 
-Next steps: 1) make it look better 2) dockerize and deploy to AWS 3) implement side scrollbar window which saves all short URLs associated with the same username 4) login system based on username
-
-Still in progress :)
+<!--
+Next steps: 1) make it look better 3) implement side scrollbar window which saves all short URLs associated with the same username 4) login system based on username
+-->

@@ -16,3 +16,7 @@ services:
 # Refer to super important comment in store_service.go or refer to this:
 # https://stackoverflow.com/questions/42360356/docker-redis-connection-refused
 
+# Also, remember that 'docker-compose up' will only start and attach to docker
+# containers, use 'docker-compose build' to build images when the Dockerfile
+# and/or other source files in the project are modified.  
+
