@@ -1,8 +1,6 @@
-# Link Lynx (URL Shortener in Go) 
+# Link Lynx
 
-Gin app that shortens urls. 
-
-Adding more features...⌛
+URL Shortener written in Go, using the Gin framework. 
 
 Redis, Go (Gin), HTML/CSS/JS
 
